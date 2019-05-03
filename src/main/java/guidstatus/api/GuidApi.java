@@ -16,12 +16,12 @@ public interface GuidApi {
             tags={ "task",})
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "`Entity`", response = Entity.class),
-            @ApiResponse(code = 404, message = "'Entity' not founded")
+            @ApiResponse(code = 404, message = "`Entity` not founded")
     })
-    @RequestMapping(value = "/task/{guid}",
+    @RequestMapping(value = "/task/{id}",
             produces = { "application/json" },
             method = RequestMethod.GET)
-    ResponseEntity<Entity> getTask(@ApiParam(value = "GUID") @PathVariable String guid);
+    ResponseEntity<Entity> getTask(@ApiParam(value = "guid") @PathVariable String id);
 
     @ApiOperation(value = "Create `Entity`",
             nickname = "createTask",

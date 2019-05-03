@@ -26,7 +26,6 @@ public class Task implements TaskService {
         Entity entity = new Entity();
         entity.setStatus(Entity.Status.CREATED);
         entity.setDatetime(timeService.getDatetime());
-        System.out.println("hi");
         return entityRepository.save(entity);
     }
 

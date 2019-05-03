@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Entity {
 
     @Id
-    @ApiModelProperty(value = "GUID")
+    @ApiModelProperty(value = "guid")
     private String guid;
     @ApiModelProperty(required = true, value = "status")
     private Status status;
