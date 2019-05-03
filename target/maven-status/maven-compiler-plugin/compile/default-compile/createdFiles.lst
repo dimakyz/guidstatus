@@ -1,0 +1,15 @@
+guidstatus\serviceImpl\Time.class
+guidstatus\config\ShedulerConfig.class
+guidstatus\repository\EntityRepository.class
+guidstatus\api\GuidApi.class
+guidstatus\config\FongoConfig.class
+guidstatus\serviceImpl\StatusChanger.class
+guidstatus\controller\SwaggerController.class
+guidstatus\service\TimeService.class
+guidstatus\config\SwaggerConfig.class
+guidstatus\entity\Entity$Status.class
+guidstatus\controller\GuidApiController.class
+guidstatus\entity\Entity.class
+guidstatus\Main.class
+guidstatus\service\TaskService.class
+guidstatus\serviceImpl\Task.class

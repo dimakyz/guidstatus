@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: guidstatus.MainTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 4.716 s <<< FAILURE! - in guidstatus.MainTest
+createTask(guidstatus.MainTest)  Time elapsed: 0.083 s  <<< ERROR!
+org.springframework.web.util.NestedServletException: Handler dispatch failed; nested exception is java.lang.NoClassDefFoundError: com/mongodb/MongoDatabaseImpl
+	at guidstatus.MainTest.createTask(MainTest.java:29)
+Caused by: java.lang.NoClassDefFoundError: com/mongodb/MongoDatabaseImpl
+	at guidstatus.MainTest.createTask(MainTest.java:29)
+Caused by: java.lang.ClassNotFoundException: com.mongodb.MongoDatabaseImpl
+	at guidstatus.MainTest.createTask(MainTest.java:29)
+
