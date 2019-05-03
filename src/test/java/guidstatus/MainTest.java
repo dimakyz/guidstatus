@@ -1,8 +1,8 @@
 package guidstatus;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+
 import guidstatus.service.TaskService;
-import guidstatus.serviceImpl.Task;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
