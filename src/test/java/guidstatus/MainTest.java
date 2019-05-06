@@ -1,5 +1,7 @@
 package guidstatus;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import guidstatus.entity.Entity;
 import guidstatus.service.TaskService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,7 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -22,7 +24,8 @@ public class MainTest {
     public MockMvc mock;
     @Autowired
     private TaskService taskService;
-
+    @Autowired
+    private ObjectMapper objectMapper;
     @Test
     public void createTask() throws Exception {
         String id = mock.perform(post("/task")
@@ -41,5 +44,17 @@ public class MainTest {
         mock.perform(
                 get("/task/1b2a3c4d5f6e1b2a3c4d5f6e")
         ).andExpect(status().is(404));
+    }
+
+    @Test
+    public void getTask() throws Exception {
+        Entity entity = taskService.create();
+        String task = mock.perform(get(String.format("/task/%s", entity.getGuid()))
+            ).andExpect(status().is(200)).andReturn().getResponse().getContentAsString();
+        Entity receivedTask = objectMapper.readValue(task, Entity.class);
+
+        assertEquals(entity.getGuid(), receivedTask.getGuid());
+        assertEquals(entity.getDatetime(), receivedTask.getDatetime());
+        assertEquals(entity.getStatus(), receivedTask.getStatus());
     }
 }
