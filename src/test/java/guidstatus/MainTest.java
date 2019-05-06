@@ -40,6 +40,12 @@ public class MainTest {
         ).andExpect(status().is(400));
     }
     @Test
+    public void notGuidv2() throws Exception {
+        mock.perform(
+                get("/task/1b2a3c4d5f6e1b2a3c4d5f6g")
+        ).andExpect(status().is(400));
+    }
+    @Test
     public void getError() throws Exception {
         mock.perform(
                 get("/task/1b2a3c4d5f6e1b2a3c4d5f6e")

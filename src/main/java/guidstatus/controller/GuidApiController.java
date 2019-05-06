@@ -33,7 +33,7 @@ public class GuidApiController implements GuidApi {
             errorString = e.getMessage();
             System.out.println("wrong");
         }
-        if(id.length() != 24 && errorString == null){
+        if(id.length() != 24 || errorString != null){
             return ResponseEntity.badRequest().build();
         } else
         if (entity == null) {
