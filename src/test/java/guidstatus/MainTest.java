@@ -39,10 +39,18 @@ public class MainTest {
                 get("/task/1b2a3c4d5f6e")
         ).andExpect(status().is(400));
     }
+
     @Test
     public void notGuidv2() throws Exception {
         mock.perform(
                 get("/task/1b2a3c4d5f6e1b2a3c4d5f6g")
+        ).andExpect(status().is(400));
+    }
+
+    @Test
+    public void notGuidv3() throws Exception {
+        mock.perform(
+                get("/task/notguidv3")
         ).andExpect(status().is(400));
     }
     @Test
