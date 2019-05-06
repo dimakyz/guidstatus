@@ -1,8 +1,6 @@
 package guidstatus;
 
-
 import guidstatus.service.TaskService;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +10,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.junit.Assert.assertNotNull;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -29,5 +28,12 @@ public class MainTest {
         String id = mock.perform(post("/task")
         ).andExpect(status().is(202)).andReturn().getResponse().getContentAsString();
         assertNotNull(taskService.get(id));
+    }
+
+    @Test
+    public void getError() throws Exception {
+        mock.perform(
+                get("/tasks/gsdsdgsdg")
+        ).andExpect(status().is(404));
     }
 }

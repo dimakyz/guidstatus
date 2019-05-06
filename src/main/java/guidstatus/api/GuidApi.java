@@ -13,7 +13,7 @@ public interface GuidApi {
             nickname = "getTask",
             httpMethod = "GET",
             response = Entity.class,
-            tags={ "task",})
+            tags={"task"})
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "`Entity`", response = Entity.class),
             @ApiResponse(code = 404, message = "`Entity` not founded")
@@ -25,7 +25,7 @@ public interface GuidApi {
             nickname = "createTask",
             httpMethod = "POST",
             response = String.class,
-            tags={ "task",})
+            tags={"task"})
     @ApiResponses(value = {
             @ApiResponse(code = 202, message = "`Entity` was accepted")
     })
