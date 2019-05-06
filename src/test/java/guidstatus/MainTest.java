@@ -31,9 +31,15 @@ public class MainTest {
     }
 
     @Test
+    public void notGuid() throws Exception {
+        mock.perform(
+                get("/task/gsdsdgsdg")
+        ).andExpect(status().is(400));
+    }
+    @Test
     public void getError() throws Exception {
         mock.perform(
-                get("/tasks/gsdsdgsdg")
+                get("/task/gsdsdgsdg121fr3s145dh35u")
         ).andExpect(status().is(404));
     }
 }
