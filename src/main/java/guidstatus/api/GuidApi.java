@@ -16,7 +16,8 @@ public interface GuidApi {
             tags={"task"})
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "`Entity`", response = Entity.class),
-            @ApiResponse(code = 404, message = "`Entity` not founded")
+            @ApiResponse(code = 404, message = "`Entity` not founded"),
+            @ApiResponse(code = 400, message = "This is not a guid")
     })
     @RequestMapping(value = "/task/{id}",
             method = RequestMethod.GET)

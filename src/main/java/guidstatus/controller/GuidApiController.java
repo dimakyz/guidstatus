@@ -22,7 +22,7 @@ public class GuidApiController implements GuidApi {
     }
 
     @Override
-    public ResponseEntity<Entity> getTask(@ApiParam(value = "GUID") @PathVariable String id) {
+    public ResponseEntity<Entity> getTask(@ApiParam(value = "guid") @PathVariable String id) {
         Entity entity = taskService.get(id);
         if (entity == null) {
             return ResponseEntity.notFound().build();
