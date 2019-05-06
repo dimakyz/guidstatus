@@ -19,10 +19,8 @@ public interface GuidApi {
             @ApiResponse(code = 404, message = "`Entity` not founded")
     })
     @RequestMapping(value = "/task/{id}",
-            produces = { "application/json" },
             method = RequestMethod.GET)
     ResponseEntity<Entity> getTask(@ApiParam(value = "guid") @PathVariable String id);
-
     @ApiOperation(value = "Create `Entity`",
             nickname = "createTask",
             httpMethod = "POST",

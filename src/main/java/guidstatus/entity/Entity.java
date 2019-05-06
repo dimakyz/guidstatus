@@ -15,6 +15,8 @@ public class Entity {
     @ApiModelProperty(required = true, value = "time")
     private String datetime;
 
+    public Entity(){}
+
     public enum Status {
         CREATED,
         RUNNING,
