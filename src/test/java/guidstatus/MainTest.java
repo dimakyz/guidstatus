@@ -33,13 +33,13 @@ public class MainTest {
     @Test
     public void notGuid() throws Exception {
         mock.perform(
-                get("/task/gsdsdgsdg")
+                get("/task/1b2a3c4d5f6e")
         ).andExpect(status().is(400));
     }
     @Test
     public void getError() throws Exception {
         mock.perform(
-                get("/task/gsdsdgsdg121fr3s145dh35u")
+                get("/task/1b2a3c4d5f6e1b2a3c4d5f6e")
         ).andExpect(status().is(404));
     }
 }
