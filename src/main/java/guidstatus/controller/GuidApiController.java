@@ -24,11 +24,12 @@ public class GuidApiController implements GuidApi {
     @Override
     public ResponseEntity<Entity> getTask(@ApiParam(value = "guid") @PathVariable String id) {
         Entity entity = taskService.get(id);
+        if(id.length() != 24){
+            return ResponseEntity.badRequest().build();
+        } else
         if (entity == null) {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(entity);
     }
-
-
 }
